@@ -1,0 +1,24 @@
+Soil Humidity Measurement: sheet w402
+https://docs.google.com/spreadsheets/d/14WfkWU0plxp_IS8IhPHUVJApIiPVQlzGQI87FkqNxDo/edit?usp=sharing
+ความชื้นวัดจากค่าความจุระหว่างปลายเซนเซอร์ ในอากาศให้ค่าความจุสูงสุด, ในน้ำให้ค่าความจุต่ำสุด
+1. คำนวณค่าความชื้นจากสูตร
+ค่าความชื้นที่อ่านได้ = soillevel
+ในอากาศให้ค่าเซนเซอร์สูงสุด(dryValue), คในน้ำให้ค่าเซนเซอร์ต่ำสุด(wetValue)
+ความชื้น = (dryValue-soillevel)*100/(dryValue-wetValue))
+
+2. การส่งคำสั่งไปที่อุปกรณ์
+2.1 เชื่อมต่อกล่องอุปกรณ์กับคอมพิวเตอร์ด้วยสาย micro usb
+2.2 เปิดโปรแกรม writeSerial_v5.exe
+2.3 โปรแกรมจะเลือกพอร์ตให้อัตโนมัติ, เลือก baudrate 9600
+2.4 ใส่คำสั่งในบรรทัด command
+Serial Command
+*gsheetT=............;    //ใส่ค่า deployment ID ของ google sheet ที่ต้องการจะใส่ค่าลงไป 
+*dry=......   //ใสค่าขณะเซนเซอร์อยู่ในอากาศ, ค่าสูงสุด ไม่เกิน 4096
+*wet=......   //ใส่ค่าขณะเซนเซอร์อยู่ในน้ำ, ค่าต่ำสุด
+
+3. Column ใน google sheet
+column soilhumi = ค่าความชื้นที่อ่านได้
+column soillevel = ค่าที่เซนเซอร์อ่านได้
+coulmn *dry=   ค่าสูงสุดของเซนเซอร์ในอากาศ max=4096 (เปลี่ยนค่าได้)
+column *wet=  ค่าต่ำสุดในน้ำ เปลี่ยนค่าได้
+column t2gsheet คือจำนวนวินาทีที่ส่งข้อมูลเข้า google sheet เปลี่ยนค่าไม่ได้
