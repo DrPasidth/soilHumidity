@@ -15,8 +15,9 @@ Serial Command
 *gsheetT=............;    //ใส่ค่า deployment ID ของ google sheet ที่ต้องการจะใส่ค่าลงไป 
 *dry=......   //ใสค่าขณะเซนเซอร์อยู่ในอากาศ, ค่าสูงสุด ไม่เกิน 4096
 *wet=......   //ใส่ค่าขณะเซนเซอร์อยู่ในน้ำ, ค่าต่ำสุด
+*clearT       //ล้างข้อมูลใน sheetT
 
-3. Column ใน google sheet
+3. Column ใน google sheet เปลี่ยนชื่อชีทเป็น SheetT
 column soilhumi = ค่าความชื้นที่อ่านได้
 column soillevel = ค่าที่เซนเซอร์อ่านได้
 coulmn *dry=   ค่าสูงสุดของเซนเซอร์ในอากาศ max=4096 (เปลี่ยนค่าได้)
